@@ -48,7 +48,8 @@ services:
 
 networks:
   offerly-network:
-    driver: bridge
+    external:
+      name: offerly-network
 
 volumes:
   offerly-admin-ui-build:
