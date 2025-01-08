@@ -6,8 +6,6 @@ services:
     volumes:
       - offerly-admin-ui-build:/app/dist
     command: echo "Admin UI build complete"
-    networks:
-      - offerly-network
   api:
     container_name: offerly-api-c
     build:
@@ -28,8 +26,6 @@ services:
       - UPLOADS_DIR=${UPLOADS_DIR}
     volumes:
       - offerly-uploads:${UPLOADS_DIR}
-    networks:
-      - offerly-network
   nginx:
     container_name: offerly-nginx-c
     build:
@@ -43,13 +39,11 @@ services:
     depends_on:
       - admin-ui-builder
       - api
-    networks:
-      - offerly-network
 
 networks:
-  offerly-network:
-    external:
-      name: offerly-network
+  default:
+    external: true
+    name: offerly-network
 
 volumes:
   offerly-admin-ui-build:
