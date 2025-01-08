@@ -6,7 +6,7 @@ services:
     volumes:
       - offerly-admin-ui-build:/app/dist
     command: echo "Admin UI build complete"
-  api:
+  offerly-api:
     container_name: offerly-api-c
     build:
       context: ../offerly-api
