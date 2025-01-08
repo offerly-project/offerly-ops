@@ -9,6 +9,7 @@ services:
     networks:
       - offerly-network
   api:
+    container_name: offerly-api
     build:
       context: ../offerly-api
       dockerfile: Dockerfile
@@ -30,6 +31,7 @@ services:
     networks:
       - offerly-network
   nginx:
+    container_name: offerly-nginx
     build:
       context: .
       dockerfile: nginx.Dockerfile
