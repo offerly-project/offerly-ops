@@ -47,4 +47,3 @@ networks:
 volumes:
   offerly-admin-web-build:
   offerly-db-data:
-  offerly-uploads:
