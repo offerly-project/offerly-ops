@@ -38,7 +38,7 @@ services:
       - offerly-admin-ui-build:/usr/share/nginx/html
     depends_on:
       - admin-ui-builder
-      - api
+      - offerly-api
 
 networks:
   default:
