@@ -1,0 +1,37 @@
+services:
+  admin-ui-builder:
+    build:
+      context: ../offerly-admin-ui
+      dockerfile: Dockerfile
+    volumes:
+      - offerly-admin-ui-build:/app/dist
+    command: echo "Admin UI build complete"
+    networks:
+      - offerly-network
+  api:
+    command: sh ../offerly-api/scripts/app.sh
+    networks:
+      - offerly-network
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - offerly-admin-ui-build:/usr/share/nginx/html
+    depends_on:
+      - admin-ui-builder
+      - api
+    networks:
+      - offerly-network
+
+networks:
+  offerly-network:
+    driver: bridge
+
+volumes:
+  offerly-admin-ui-build:
+  offerly-db-data:
+  offerly-uploads:
