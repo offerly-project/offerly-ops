@@ -32,6 +32,7 @@ services:
       dockerfile: nginx.Dockerfile
     ports:
       - "80:80"
+      - "3000:3000"
     volumes:
       - offerly-admin-web-build:/usr/share/nginx/offerly/admin
     depends_on:
