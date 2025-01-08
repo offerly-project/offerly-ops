@@ -4,7 +4,7 @@ services:
       context: ../offerly-admin-ui
       dockerfile: Dockerfile
     volumes:
-      - offerly-admin-ui-build:/app/dist
+      - offerly-admin-web-build:/app/dist
   offerly-api:
     container_name: offerly-api-c
     build:
@@ -32,9 +32,8 @@ services:
       dockerfile: nginx.Dockerfile
     ports:
       - "80:80"
-      - "443:443"
     volumes:
-      - offerly-admin-ui-build:/usr/share/nginx/html
+      - offerly-admin-web-build:/usr/share/nginx/offerly/admin
     depends_on:
       - admin-ui-builder
       - offerly-api
@@ -45,6 +44,6 @@ networks:
     name: offerly-network
 
 volumes:
-  offerly-admin-ui-build:
+  offerly-admin-web-build:
   offerly-db-data:
   offerly-uploads:
