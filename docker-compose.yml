@@ -9,7 +9,24 @@ services:
     networks:
       - offerly-network
   api:
-    command: sh ../offerly-api/scripts/app.sh
+    build:
+      context: ../offerly-api
+      dockerfile: Dockerfile
+      args:
+        - NODE_ENV=${NODE_ENV}
+        - DB_URL=${DB_URL}
+        - DATA_DIR=${DATA_DIR}
+        - UPLOADS_DIR=${UPLOADS_DIR}
+        - COUNTRIES=${COUNTRIES}
+        - CATEGORIES=${CATEGORIES}
+        - LANGUAGES=${LANGUAGES}
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - DB_URL=${DB_URL}
+      - DATA_DIR=${DATA_DIR}
+      - UPLOADS_DIR=${UPLOADS_DIR}
+    volumes:
+      - offerly-uploads:${UPLOADS_DIR}
     networks:
       - offerly-network
   nginx:
