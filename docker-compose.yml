@@ -46,3 +46,6 @@ networks:
 
 volumes:
   offerly-admin-web-build:
+  offerly-uploads:
+    external: true
+    name: offerly-uploads
