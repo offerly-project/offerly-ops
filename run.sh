@@ -9,4 +9,4 @@ export LANGUAGES='["ar","en"]'
 export NODE_ENV=production
 sh ./pull.sh
 docker compose up --build -d
-sh ./cert.sh
+sh ./cert.sh $1 $2
