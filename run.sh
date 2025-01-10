@@ -8,4 +8,4 @@ export CATEGORIES='["Shopping","Travel","Restaurants & Cafes","Entertainment","C
 export LANGUAGES='["ar","en"]'
 export NODE_ENV=production
 sh ./pull.sh
-docker compose run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d offerly.me
+docker compose up --build -d
