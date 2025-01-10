@@ -25,25 +25,17 @@ services:
       - UPLOADS_DIR=${UPLOADS_DIR}
     volumes:
       - offerly-uploads:${UPLOADS_DIR}
-    restart: always
   nginx:
     container_name: offerly-nginx-c
-    build:
-      dockerfile: nginx.Dockerfile
+    image: nginx:1.19.0-alpine
     ports:
       - "80:80"
-      - "443:443"
     volumes:
       - offerly-admin-web-build:/usr/share/nginx/offerly/admin
-      - ./nginx/conf/:/etc/nginx/conf.d
-      - ./certbot/www:/var/www/certbot
-      - /etc/letsencrypt/live/www.offerly.me/fullchain.pem:/etc/letsencrypt/live/www.offerly.me/fullchain.pem:ro
-      - /etc/letsencrypt/live/www.offerly.me/privkey.pem:/etc/letsencrypt/live/www.offerly.me/privkey.pem:ro
+      - ./nginx.conf:/etc/nginx/conf.d
     depends_on:
       - admin-ui-builder
       - offerly-api
-    restart: always
-
 
 networks:
   default:
