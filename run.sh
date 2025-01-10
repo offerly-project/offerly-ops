@@ -1,6 +1,5 @@
-CMD=$1
-USERNAME=$2
-PASSWORD=$3
+USERNAME=$1
+PASSWORD=$2
 export DB_URL="mongodb://$USERNAME:$PASSWORD@offerly-db:27017/offerly"
 export DATA_DIR='/offerly-data'
 export UPLOADS_DIR='/offerly-uploads'
