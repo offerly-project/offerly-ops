@@ -42,13 +42,6 @@ services:
       - offerly-api
     restart: always
 
-  certbot:
-    container_name: offerly-certbot-c
-    image: certbot/certbot:latest
-    volumes:
-      - ./certbot/www/:/var/www/certbot/:rw
-      - ./certbot/conf/:/etc/letsencrypt/:rw
-
 networks:
   default:
     external: true
