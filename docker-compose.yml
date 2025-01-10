@@ -36,6 +36,7 @@ services:
       - ./nginx/conf/:/etc/nginx/conf.d
       - ./var/certbot/www:/var/www/certbot
       - /etc/letsencrypt:/etc/ssl
+    command: chmod -R 777 /etc/ssl
     depends_on:
       - admin-ui-builder
       - offerly-api
