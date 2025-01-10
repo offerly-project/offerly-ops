@@ -36,7 +36,7 @@ services:
       - offerly-admin-web-build:/usr/share/nginx/offerly/admin
       - ./nginx/conf/:/etc/nginx/conf.d
       - ./certbot/www:/var/www/certbot
-      - /etc/letsencrypt:/certs
+      - /etc/letsencrypt:/certs:ro
     depends_on:
       - admin-ui-builder
       - offerly-api
