@@ -13,4 +13,6 @@ if [ $CMD = "start" ]; then
     docker compose up --build -d
 elif [ $CMD = "stop" ]; then
     docker compose down
+elif [ $CMD = "cert" ]; then
+    sh ./cert.sh
 fi
