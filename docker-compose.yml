@@ -33,9 +33,9 @@ services:
       - "80:80"
     volumes:
       - offerly-admin-web-build:/usr/share/nginx/offerly/admin
-      - ./nginx/conf/:/etc/nginx/conf.d/:ro
-      - ./var/certbot/www:/var/www/certbot/:ro
-      - ./var/certbot/conf:/etc/letsencrypt/:ro
+      - ./nginx/conf/:/etc/nginx/conf.d
+      - ./certbot/www:/var/www/certbot
+      - /etc/letsencrypt:/etc/letsencrypt
     depends_on:
       - admin-ui-builder
       - offerly-api
