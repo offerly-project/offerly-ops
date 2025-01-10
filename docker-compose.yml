@@ -28,7 +28,8 @@ services:
     restart: always
   nginx:
     container_name: offerly-nginx-c
-    image: nginx
+    build:
+      dockerfile: nginx.Dockerfile
     ports:
       - "80:80"
       - "443:443"
