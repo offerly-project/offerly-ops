@@ -32,7 +32,7 @@ services:
       - "80:80"
     volumes:
       - offerly-admin-web-build:/usr/share/nginx/offerly/admin
-      - ./nginx.conf:/etc/nginx/conf.d
+      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
     depends_on:
       - admin-ui-builder
       - offerly-api
