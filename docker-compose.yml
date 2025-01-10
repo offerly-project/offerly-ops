@@ -28,7 +28,7 @@ services:
     restart: always
   nginx:
     container_name: offerly-nginx-c
-    image: nginx:1.19.0-alpine
+    image: nginx
     ports:
       - "80:80"
       - "443:443"
