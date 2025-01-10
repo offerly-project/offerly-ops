@@ -9,10 +9,4 @@ export CATEGORIES='["Shopping","Travel","Restaurants & Cafes","Entertainment","C
 export LANGUAGES='["ar","en"]'
 export NODE_ENV=production
 sh ./pull.sh
-if [ $CMD = "start" ]; then
-    docker compose up --build -d
-elif [ $CMD = "stop" ]; then
-    docker compose down
-elif [ $CMD = "cert" ]; then
-    sh ./cert.sh
-fi
+docker compose up --build -d
