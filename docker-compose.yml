@@ -32,6 +32,7 @@ services:
       - offerly-admin-web-build:/usr/share/nginx/offerly/admin
       - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
       - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
     depends_on:
       - admin-ui-builder
       - offerly-api
@@ -39,6 +40,7 @@ services:
     image: certbot/certbot:latest
     volumes:
       - ./certbot/www:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
 networks:
   default:
     external: true
