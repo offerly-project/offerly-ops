@@ -33,7 +33,12 @@ services:
     depends_on:
       - admin-ui-builder
       - offerly-api
-
+  certbot:
+    container_name: offerly-certbot-c
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
 networks:
   default:
     external: true
