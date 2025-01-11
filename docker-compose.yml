@@ -33,6 +33,14 @@ services:
     depends_on:
       - admin-ui-builder
       - offerly-api
+  cron:
+    container_name: offerly-cron-c
+    build:
+      context: ../offerly-cron
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    restart: always
 networks:
   default:
     external: true
