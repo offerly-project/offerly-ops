@@ -7,6 +7,8 @@ services:
       - offerly-admin-web-build:/app/dist
   offerly-api:
     container_name: offerly-api-c
+    env_file:
+      - .env
     build:
       context: ../offerly-api
       dockerfile: Dockerfile
@@ -14,7 +16,7 @@ services:
         - NODE_ENV=${NODE_ENV}
         - DB_URL=${DB_URL}
         - DATA_DIR=${DATA_DIR}
-        - UPLOADS_DIR=${UPLOADS_DIR}
+        - UPLOADS_DIR=${UPLOADS_DIR}`
         - COUNTRIES=${COUNTRIES}
         - CATEGORIES=${CATEGORIES}
         - LANGUAGES=${LANGUAGES}
@@ -27,7 +29,7 @@ services:
       - offerly-uploads:${UPLOADS_DIR}
   nginx:
     container_name: offerly-nginx-c
-    image: nginx:1.19.0-alpine
+    image: nginx
     ports:
       - "80:80"
     volumes:
