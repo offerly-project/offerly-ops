@@ -16,7 +16,7 @@ services:
         - NODE_ENV=${NODE_ENV}
         - DB_URL=${DB_URL}
         - DATA_DIR=${DATA_DIR}
-        - UPLOADS_DIR=${UPLOADS_DIR}`
+        - UPLOADS_DIR=${UPLOADS_DIR}
         - COUNTRIES=${COUNTRIES}
         - CATEGORIES=${CATEGORIES}
         - LANGUAGES=${LANGUAGES}
