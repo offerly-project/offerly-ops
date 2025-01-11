@@ -33,9 +33,6 @@ services:
     volumes:
       - offerly-admin-web-build:/usr/share/nginx/offerly/admin
       - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
-      - ./certbot/www:/var/www/certbot
-      - /etc/letsencrypt/archive/www.offerly.me/fullchain.pem:/certs/fullchain1.pem:ro
-      - /etc/letsencrypt/archive/www.offerly.me/privkey.pem:/certs/privkey1.pem:ro
     depends_on:
       - admin-ui-builder
       - offerly-api
