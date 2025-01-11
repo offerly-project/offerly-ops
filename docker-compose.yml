@@ -27,6 +27,7 @@ services:
     image: nginx
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - offerly-admin-web-build:/usr/share/nginx/offerly/admin
       - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
