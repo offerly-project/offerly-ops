@@ -2,3 +2,4 @@ logs
 backups
 certbot
 .env
+db-backup.sh
