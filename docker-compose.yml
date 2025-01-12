@@ -9,6 +9,8 @@ services:
     container_name: offerly-api-c
     env_file:
       - .env
+    environment:
+      - DB_URL=${OFFERLY_DB_URI}
     build:
       context: ../offerly-api
       dockerfile: Dockerfile
@@ -42,11 +44,11 @@ services:
       - ./certbot/conf/:/etc/letsencrypt/:rw
   cron:
     container_name: offerly-cron-c
-    env_file:
-      - .env
     build:
       context: ../offerly-cron
       dockerfile: Dockerfile
+    environment:
+      - AGENDA_URL=${OFFERLY_AGENDA_URI}
     restart: always
 networks:
   default:
