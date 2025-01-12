@@ -1,1 +1,4 @@
 .env
+logs
+backups
+db-backup.sh
