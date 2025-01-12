@@ -9,12 +9,12 @@ services:
     container_name: offerly-api-c
     env_file:
       - .env
+    environment:
+      - DB_URL=${OFFERLY_DB_URI}
     build:
       context: ../offerly-api
       dockerfile: Dockerfile
       args:
-        - NODE_ENV=${NODE_ENV}
-        - DB_URL=${DB_URL}
         - DATA_DIR=${DATA_DIR}
         - UPLOADS_DIR=${UPLOADS_DIR}
         - COUNTRIES=${COUNTRIES}
@@ -47,8 +47,8 @@ services:
     build:
       context: ../offerly-cron
       dockerfile: Dockerfile
-    env_file:
-      - .env
+    environment:
+      - AGENDA_URL=${OFFERLY_AGENDA_URI}
     restart: always
 networks:
   default:
