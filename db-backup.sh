@@ -2,7 +2,7 @@ backup_date=$(date '+%Y-%m-%d_%H-%M-%S')
 backup_name="$backup_date.backup"
 backup_path="./backups/db"
 
-docker exec offerly-db-c mongodump --uri="$MONGO_URI" --out "/data/db/backup/$backup_name"
+docker exec offerly-db-c mongodump --uri="$MONGO_OFFERLY_URI" --out "/data/db/backup/$backup_name"
 
 
 if [ $? -eq 0 ]; then
