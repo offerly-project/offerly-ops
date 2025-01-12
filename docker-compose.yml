@@ -27,12 +27,21 @@ services:
     image: nginx
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - offerly-admin-web-build:/usr/share/nginx/offerly/admin
       - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
     depends_on:
       - admin-ui-builder
       - offerly-api
+  certbot:
+    container_name: offerly-certbot-c
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
   cron:
     container_name: offerly-cron-c
     build:
