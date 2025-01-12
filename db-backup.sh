@@ -1,6 +1,6 @@
 backup_date=$(date '+%Y-%m-%d_%H-%M-%S')
 backup_name="$backup_date.backup"
-backup_path="./backups/db"
+backup_path="./backups"
 
 docker exec offerly-db-c mongodump --uri="$MONGO_OFFERLY_URI" --out "/data/db/backup/$backup_name"
 
@@ -13,8 +13,8 @@ else
 fi
 
 
-docker cp "offerly-db-c:/data/db/backup/$backup_name/" "$backup_path"
-
+docker cp "offerly-db-c:/data/db/backup/$backup_name/" "$backup_path/db"
+docker cp "offerly-api-c:/offerly-uploads" "$backup_path/uploads"
 
 if [ $? -eq 0 ]; then
   echo "Backup $backup_name copied to host successfully."
