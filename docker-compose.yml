@@ -40,14 +40,14 @@ services:
     volumes:
       - ./certbot/www/:/var/www/certbot/:rw
       - ./certbot/conf/:/etc/letsencrypt/:rw
-  cron:
-    container_name: offerly-cron-c
-    build:
-      context: ../offerly-cron
-      dockerfile: Dockerfile
-    env_file:
-      - .env
-    restart: always
+  # cron:
+  #   container_name: offerly-cron-c
+  #   build:
+  #     context: ../offerly-cron
+  #     dockerfile: Dockerfile
+  #   env_file:
+  #     - .env
+  #   restart: always
 networks:
   default:
     external: true
