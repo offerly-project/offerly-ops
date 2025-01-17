@@ -5,3 +5,5 @@ cd ../offerly-api
 git pull
 cd ../offerly-cron
 git pull
+cd ../offerly-scrappers
+git pull
