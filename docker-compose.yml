@@ -58,10 +58,6 @@ services:
     restart: always
     ports:
       - "8001:8001"
-    volumes:
-      - offerly-uploads:${UPLOADS_DIR}
-    networks:
-      - default
 networks:
   default:
     external: true
