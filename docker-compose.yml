@@ -11,6 +11,7 @@ services:
       - .env
     environment:
       - PORT=8000
+      - NODE_ENV=production
     build:
       context: ../offerly-api
       dockerfile: Dockerfile
@@ -53,6 +54,7 @@ services:
   offerly-scrappers:
     container_name: offerly-scrappers-c
     environment:
+      - NODE_ENV=production
       - PORT=8001
     build:
       context: ../offerly-scrappers
