@@ -9,6 +9,8 @@ services:
     container_name: offerly-api-c
     env_file:
       - .env
+    environment:
+      - PORT=8000
     build:
       context: ../offerly-api
       dockerfile: Dockerfile
@@ -50,6 +52,8 @@ services:
   #   restart: always
   offerly-scrappers:
     container_name: offerly-scrappers-c
+    environment:
+      - PORT=8001
     build:
       context: ../offerly-scrappers
       dockerfile: Dockerfile
