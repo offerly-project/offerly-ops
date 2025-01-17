@@ -48,6 +48,20 @@ services:
   #   env_file:
   #     - .env
   #   restart: always
+  offerly-scrappers:
+    container_name: offerly-scrappers-c
+    build:
+      context: ../offerly-scrappers
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    restart: always
+    ports:
+      - "8001:8001"
+    volumes:
+      - offerly-uploads:${UPLOADS_DIR}
+    networks:
+      - default
 networks:
   default:
     external: true
