@@ -62,6 +62,9 @@ services:
     env_file:
       - .env
     restart: always
+  offerly-redis:
+    container_name: offerly-redis-c
+    image: redis:7.4.2-alpine
 networks:
   default:
     external: true
