@@ -32,6 +32,7 @@ services:
     volumes:
       - offerly-admin-web-build:/usr/share/nginx/offerly/admin
       - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./logo.png:/usr/share/nginx/offerly/static/logo.png
       - ./certbot/www:/var/www/certbot/:ro
       - ./certbot/conf/:/etc/nginx/ssl/:ro
     depends_on:
