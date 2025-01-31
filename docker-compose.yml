@@ -7,6 +7,7 @@ services:
       - offerly-admin-web-build:/app/dist
   offerly-api:
     container_name: offerly-api-c
+    restart: always
     env_file:
       - .env
     environment:
@@ -26,6 +27,7 @@ services:
   nginx:
     container_name: offerly-nginx-c
     image: nginx
+    restart: always
     ports:
       - "80:80"
       - "443:443"
@@ -66,6 +68,7 @@ services:
   offerly-redis:
     container_name: offerly-redis-c
     image: redis:7.4.2-alpine
+    restart: always
 networks:
   default:
     external: true
