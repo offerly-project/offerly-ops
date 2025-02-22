@@ -33,25 +33,10 @@ services:
       - offerly-admin-web-build:/usr/share/nginx/offerly/admin
       - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
       - ./logo.png:/usr/share/nginx/offerly/static/logo.png
-      - ./certbot/www:/var/www/certbot/:ro
-      - ./certbot/conf/:/etc/nginx/ssl/:ro
+      - /etc/letsencrypt/live/api.offerly.me:/etc/letsencrypt/live/api.offerly.me
     depends_on:
       - admin-ui-builder
       - offerly-api
-  certbot:
-    container_name: offerly-certbot-c
-    image: certbot/certbot:latest
-    volumes:
-      - ./certbot/www/:/var/www/certbot/:rw
-      - ./certbot/conf/:/etc/letsencrypt/:rw
-  # cron:
-  #   container_name: offerly-cron-c
-  #   build:
-  #     context: ../offerly-cron
-  #     dockerfile: Dockerfile
-  #   env_file:
-  #     - .env
-  #
   offerly-scrappers:
     container_name: offerly-scrappers-c
     environment:
