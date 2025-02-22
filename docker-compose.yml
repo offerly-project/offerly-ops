@@ -33,8 +33,7 @@ services:
       - offerly-admin-web-build:/usr/share/nginx/offerly/admin
       - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
       - ./logo.png:/usr/share/nginx/offerly/static/logo.png
-      - /etc/letsencrypt/live/api.offerly.me/fullchain.pem:/etc/letsencrypt/live/api.offerly.me/fullchain.pem
-      - /etc/letsencrypt/live/api.offerly.me/privkey.pem:/etc/letsencrypt/live/api.offerly.me/privkey.pem
+      - /etc/letsencrypt/live/api.offerly.me:/etc/letsencrypt/live/api.offerly.me:ro
     depends_on:
       - admin-ui-builder
       - offerly-api
