@@ -32,7 +32,7 @@ services:
     volumes:
       - offerly-admin-web-build:/usr/share/nginx/offerly/admin
       - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
-      - ./logo.png:/usr/share/nginx/offerly/static/logo.png
+      - ./logo.png:/usr/share/nginx/offerly/assets/logo.png
       - /etc/letsencrypt/live/api.offerly.me/fullchain.pem:/etc/letsencrypt/live/api.offerly.me/fullchain.pem:ro
       - /etc/letsencrypt/live/api.offerly.me/privkey.pem:/etc/letsencrypt/live/api.offerly.me/privkey.pem:ro
       - /etc/letsencrypt/live/admin.offerly.me/fullchain.pem:/etc/letsencrypt/live/admin.offerly.me/fullchain.pem:ro
