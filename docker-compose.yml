@@ -12,6 +12,7 @@ services:
     environment:
       - PORT=8000
       - NODE_ENV=production
+    restart: unless-stopped
     build:
       context: ../offerly-api
       dockerfile: Dockerfile
@@ -22,6 +23,7 @@ services:
   nginx:
     container_name: offerly-nginx-c
     image: nginx
+    restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
@@ -38,6 +40,7 @@ services:
       - offerly-api
   offerly-scrappers:
     container_name: offerly-scrappers-c
+    restart: unless-stopped
     environment:
       - NODE_ENV=production
       - PORT=8001
@@ -48,6 +51,7 @@ services:
       - .env
   offerly-redis:
     container_name: offerly-redis-c
+    restart: unless-stopped
     image: redis:7.4.2-alpine
 networks:
   default:
