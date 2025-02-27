@@ -64,7 +64,7 @@ services:
 networks:
   services-net:
     name: offerly-network
-    external: true
+    driver: bridge
 
 volumes:
   offerly-admin-web-build:
