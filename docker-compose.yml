@@ -20,6 +20,8 @@ services:
         - UPLOADS_DIR=${UPLOADS_DIR}
     volumes:
       - offerly-uploads:${UPLOADS_DIR}
+    networks:
+      - services-net
   nginx:
     container_name: offerly-nginx-c
     image: nginx
@@ -38,6 +40,8 @@ services:
     depends_on:
       - admin-ui-builder
       - offerly-api
+    networks:
+      - services-net
   offerly-scrappers:
     container_name: offerly-scrappers-c
     restart: unless-stopped
@@ -49,14 +53,18 @@ services:
       dockerfile: Dockerfile
     env_file:
       - .env
+    networks:
+      - services-net
   offerly-redis:
     container_name: offerly-redis-c
     restart: unless-stopped
     image: redis:7.4.2-alpine
+    networks:
+      - services-net
 networks:
-  default:
-    external: true
+  services-net:
     name: offerly-network
+    external: true
 
 volumes:
   offerly-admin-web-build:
